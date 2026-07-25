@@ -8,16 +8,16 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center p-6">
-      <div className="text-center max-w-md">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8 text-center">
         <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <span className="text-2xl">⚠️</span>
         </div>
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-          Terjadi Kesalahan
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+          Gagal Memuat Data
         </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
-          {error.message || "Terjadi kesalahan yang tidak terduga."}
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 max-w-md mx-auto">
+          {error.message || "Terjadi kesalahan saat mengambil data."}
         </p>
         <button
           onClick={reset}

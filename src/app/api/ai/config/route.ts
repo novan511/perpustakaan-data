@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const AI_BASE_URL = "https://token-plan-sgp.xiaomimimo.com/v1";
-const AI_MODEL = "gpt-4o-mini";
+const AI_MODEL = "MiMo-7B-RL";
 
 function maskKey(key: string): string {
   if (key.length <= 8) {

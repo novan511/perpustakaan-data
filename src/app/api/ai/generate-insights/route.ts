@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 const AI_BASE_URL = "https://token-plan-sgp.xiaomimimo.com/v1";
 const AI_MODEL = "MiMo-7B-RL";
@@ -88,6 +89,8 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    if (!checkRateLimit("ai-insights-" + apiKey, 5, 60000)) return NextResponse.json({ error: "Rate limit exceeded. Try again in 1 minute." }, { status: 429 });
 
     const supabase = createSupabaseClient();
 
