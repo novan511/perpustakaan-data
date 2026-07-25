@@ -32,7 +32,7 @@ interface ActivityItem {
 }
 
 export default function AdminDashboardPage() {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [stats, setStats] = useState<Stats>({
     categories: 0,
     datasets: 0,

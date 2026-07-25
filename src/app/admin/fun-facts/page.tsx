@@ -51,7 +51,7 @@ const iconOptions = [
 ];
 
 export default function FunFactsManagerPage() {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [facts, setFacts] = useState<FunFact[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);

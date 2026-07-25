@@ -9,7 +9,7 @@ import { Database, ArrowLeft, Loader2, Eye, EyeOff } from "lucide-react";
 
 export default function AdminAuthPage() {
   const router = useRouter();
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

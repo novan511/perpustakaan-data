@@ -5,6 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { createClient } from "@/lib/supabase/client";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import {
   LayoutDashboard,
   Database,
@@ -35,7 +36,7 @@ export default function AdminLayout({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const supabase = createClient();
+  const [supabase] = useState<SupabaseClient>(() => createClient());
   const isLoginPage = pathname === "/admin";
   const [loading, setLoading] = useState(!isLoginPage);
   const [sidebarOpen, setSidebarOpen] = useState(false);

@@ -37,7 +37,7 @@ interface Dataset {
 }
 
 export default function DataManagerPage() {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [categories, setCategories] = useState<Category[]>([]);
   const [datasets, setDatasets] = useState<Dataset[]>([]);
   const [loading, setLoading] = useState(true);

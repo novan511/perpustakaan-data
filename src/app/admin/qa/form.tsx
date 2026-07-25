@@ -48,7 +48,7 @@ export default function QAForm({
   initialData?: QAFormData;
   onSuccess: () => void;
 }) {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 

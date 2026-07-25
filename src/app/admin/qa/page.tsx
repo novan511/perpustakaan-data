@@ -50,7 +50,7 @@ const categories = [
 ];
 
 export default function QAManagerPage() {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const [items, setItems] = useState<QAItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");

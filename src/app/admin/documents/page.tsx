@@ -60,7 +60,7 @@ function formatFileSize(bytes: number): string {
 type ViewMode = "documents" | "import";
 
 export default function DocumentsManagerPage() {
-  const supabase = createClient();
+  const [supabase] = useState(() => createClient());
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("documents");
 
